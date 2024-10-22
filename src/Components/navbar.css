@@ -1,0 +1,145 @@
+/* Basic reset */  
+* {  
+    margin: 0;  
+    padding: 0;  
+    box-sizing: border-box;  
+}  
+  
+body {  
+    font-family: 'Open Sans', sans-serif;
+  
+}  
+  
+.navbar {  
+    display: flex;  
+    justify-content: space-between;  
+    align-items: center;  
+    background-color: #1A237E;  
+    color: white;  
+    padding: 0.75rem 1rem;  
+}  
+  
+.logo {  
+    text-decoration: none;  
+    color: white;  
+    font-size: 1.5rem; 
+    font-weight: 700; 
+}  
+  
+.navbar-toggle {  
+    display: none;  
+    font-size: 1.8rem;  
+    cursor: pointer;  
+}  
+  
+.main-nav {  
+    list-style-type: none;  
+    display: flex;  
+}  
+  
+.main-nav li {  
+    margin: 0 10px;  
+}  
+  
+.main-nav li a {  
+    text-decoration: none;  
+    color: white;  
+    padding: 7px 10px;  
+    transition: background-color 0.3s;
+    border-radius: 2rem;  
+    font-weight: 700;
+}  
+  
+.main-nav li a:hover {  
+    background-color: #64B5F6;
+      
+} 
+
+/* search  */
+
+.icon-button {  
+    background: white;  
+    border: none;  
+    color: black;  
+    cursor: pointer;  
+    padding: 0;  
+    display: flex;  
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    width: 10%;
+    
+}  
+  
+.icon-button i {  
+    font-size: 1rem;  
+    padding: 8px; 
+    border: none; 
+}  
+.search-input{
+    border: none;
+    padding-left: 0.5rem;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    width: 90%;
+    outline: none;
+}
+.search-form {
+    display: flex;
+    width: 20rem;
+    
+}
+  
+@media screen and (max-width: 768px) {  
+    .search-form {  
+        flex-direction: column;  
+        width: 100%;  
+    }  
+  
+    .search-input {  
+        width: 100%;  
+        margin-bottom: 10px;  
+    }  
+  
+    .icon-button {  
+        width: 100%;  
+        justify-content: center;  
+    }  
+  
+    .icon-button i {  
+        padding: 8px 0;  
+    }
+
+}  
+
+  
+/* Responsive */  
+@media screen and (max-width: 768px) {  
+    .navbar-toggle {  
+        display: block;  
+    }  
+  
+    .main-nav {  
+        position: absolute;  
+        top: 60px;  
+        left: -100%;  
+        right: 0;  
+        width: 100%;  
+        flex-direction: column;  
+        background-color: #333;  
+        transition: left 0.3s;  
+    }  
+  
+    .main-nav.active {  
+        left: 0;  
+    }  
+  
+    .main-nav li {  
+        text-align: center;  
+        padding: 10px 0;  
+    }
+    .search-form{
+        display: none;
+    }
+}  
