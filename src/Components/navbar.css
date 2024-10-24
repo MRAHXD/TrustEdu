@@ -6,8 +6,7 @@
 }  
   
 body {  
-    font-family: 'Open Sans', sans-serif;
-  
+    font-family: 'Open Sans', sans-serif;  
 }  
   
 .navbar {  
@@ -22,8 +21,8 @@ body {
 .logo {  
     text-decoration: none;  
     color: white;  
-    font-size: 1.5rem; 
-    font-weight: 700; 
+    font-size: 1.5rem;  
+    font-weight: 700;  
 }  
   
 .navbar-toggle {  
@@ -35,6 +34,7 @@ body {
 .main-nav {  
     list-style-type: none;  
     display: flex;  
+    align-items: center;  
 }  
   
 .main-nav li {  
@@ -45,76 +45,29 @@ body {
     text-decoration: none;  
     color: white;  
     padding: 7px 10px;  
-    transition: background-color 0.3s;
+    transition: background-color 0.3s;  
     border-radius: 2rem;  
-    font-weight: 700;
+    font-weight: 700;  
 }  
   
 .main-nav li a:hover {  
-    background-color: #64B5F6;
-      
-} 
-
-/* search  */
-
-.icon-button {  
-    background: white;  
+    background-color: #64B5F6;  
+}  
+  
+.main-nav .button {  
+    background-color: #4CAF50; /* Green background for buttons */  
+    color: white;  
     border: none;  
-    color: black;  
     cursor: pointer;  
-    padding: 0;  
-    display: flex;  
-    align-items: center;
-    justify-content: center;
-    border-top-right-radius: 2rem;
-    border-bottom-right-radius: 2rem;
-    width: 10%;
-    
+    border-radius: 2rem;  
+    padding: 7px 15px;  
 }  
   
-.icon-button i {  
-    font-size: 1rem;  
-    padding: 8px; 
-    border: none; 
+.main-nav .button:hover {  
+    background-color: #388E3C; /* Darker green on hover */  
 }  
-.search-input{
-    border: none;
-    padding-left: 0.5rem;
-    border-top-left-radius: 2rem;
-    border-bottom-left-radius: 2rem;
-    width: 90%;
-    outline: none;
-}
-.search-form {
-    display: flex;
-    width: 20rem;
-    
-}
   
-@media screen and (max-width: 768px) {  
-    .search-form {  
-        flex-direction: column;  
-        width: 100%;  
-    }  
-  
-    .search-input {  
-        width: 100%;  
-        margin-bottom: 10px;  
-    }  
-  
-    .icon-button {  
-        width: 100%;  
-        justify-content: center;  
-    }  
-  
-    .icon-button i {  
-        padding: 8px 0;  
-    }
-
-}  
-
-  
-/* Responsive */  
+/* Responsive adjustments */  
 @media screen and (max-width: 768px) {  
     .navbar-toggle {  
         display: block;  
@@ -138,8 +91,14 @@ body {
     .main-nav li {  
         text-align: center;  
         padding: 10px 0;  
-    }
-    .search-form{
-        display: none;
-    }
+    }  
+  
+    .main-nav li a {  
+        display: block;  
+        width: 100%;  
+    }  
+  
+    .search-form {  
+        display: none;   
+    }  
 }  
