@@ -1,0 +1,63 @@
+.pricing-filter {  
+    display: flex;  
+    flex-direction: column;  
+    padding: 20px;  
+    background-color: #f9f9f9;  
+    border: 1px solid #ddd;  
+    border-radius: 5px;  
+    width: 100%; /* Adjusted from fixed width to be relative */  
+    max-width: 300px; /* Max-width to control expansion on larger screens */  
+    margin: 0 auto;  
+    box-sizing: border-box; /* Ensures padding is included in width */  
+}  
+  
+.pricing-filter h2 {  
+    font-size: 24px;  
+    margin-bottom: 20px;  
+    color: #333;  
+}  
+  
+.pricing-filter label {  
+    font-size: 16px;  
+    margin-bottom: 10px;  
+    color: #555;  
+    display: block; /* Ensures label takes the full width */  
+}  
+  
+.pricing-filter input[type="range"] {  
+    width: 100%;  
+    margin-bottom: 20px;  
+}  
+  
+.pricing-filter .price-display {  
+    font-size: 18px;  
+    color: #333;  
+    margin-bottom: 20px;  
+}  
+  
+.pricing-filter button {  
+    padding: 10px 20px;  
+    background-color: #007bff;  
+    color: #fff;  
+    border: none;  
+    border-radius: 5px;  
+    cursor: pointer;  
+    font-size: 16px;  
+    width: 100%; /* Makes button full width */  
+}  
+  
+.pricing-filter button:hover {  
+    background-color: #0056b3;  
+}  
+  
+/* Responsive adjustments */  
+@media (max-width: 600px) {  
+    .pricing-filter {  
+        padding: 10px;  
+        max-width: 100%; /* Allows the box to fit smaller screens better */  
+    }  
+  
+    .pricing-filter h2, .pricing-filter label, .pricing-filter button {  
+        font-size: 14px; /* Smaller font size on smaller screens */  
+    }  
+}  

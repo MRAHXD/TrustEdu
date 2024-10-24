@@ -1,0 +1,71 @@
+.filter-component {  
+    padding: 20px;  
+    border: 3px dotted darkgray;    
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */  
+    width: 100%; /* Take the full width of the container */  
+    max-width: 300px; /* Max width to control expansion */  
+}  
+  
+.selected-filters {  
+    display: flex;  
+    flex-wrap: wrap;  
+    gap: 10px;  
+    margin-bottom: 20px;  
+    padding: 10px;  
+    border: 1px solid darkgray;  
+    border-radius: 5px;  
+}  
+  
+.filter-tag {  
+    background-color: #eee;  
+    border: 1px solid #ddd;  
+    padding: 5px 10px;  
+    border-radius: 5px;  
+    display: flex;  
+    align-items: center;  
+}  
+  
+.filter-tag button {  
+    background: none;  
+    border: none;  
+    cursor: pointer;  
+    color: #333;  
+    margin-left: 10px;  
+    padding: 0;  
+}  
+  
+.filters {  
+    display: flex;  
+    flex-direction: column;  
+}  
+  
+.filter-category {  
+    margin-bottom: 10px;  
+    padding: 10px;  
+    border: 1px solid darkgray;  
+    border-radius: 5px;  
+    background-color: #f9f9f9;  
+    display: flex;  
+    flex-direction: column;  
+    gap: 10px;  
+}  
+  
+.filter-category h5 {  
+    margin-bottom: 5px;  
+}  
+  
+/* Responsive adjustments */  
+@media (max-width: 600px) {  
+    .filter-component {  
+        padding: 10px;  
+        max-width: 100%;  
+    }  
+  
+    .selected-filters, .filter-category {  
+        padding: 5px;  
+    }  
+  
+    .filter-tag, .filter-category h5, .filter-category label {  
+        font-size: 14px; /* Smaller font size on smaller screens */  
+    }  
+}  
