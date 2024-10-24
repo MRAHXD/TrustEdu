@@ -1,33 +1,23 @@
-import React, { useState } from 'react';  
+import React from 'react';  
 import './Filter.css';  
   
-function FilterComponent() {  
-    const [selectedFilters, setSelectedFilters] = useState([]);  
-    const [checkboxState, setCheckboxState] = useState({  
-        AI: false,  
-        ML: false,  
-        'Data Science': false,  
-        Zoology: false,  
-        'Deep Learning': false,  
-        Accounts: false  
-    });  
+function FilterComponent({ selectedFilters, setSelectedFilters }) {  
+    const categories = ['AI', 'ML', 'Data Science', 'Zoology', 'Deep Learning', 'Accounts'];  
   
-    const handleFilterChange = (value, checked) => {  
-        if (checked) {  
-            setSelectedFilters(prevFilters => [...prevFilters, value]);  
+    const handleFilterChange = (category, isChecked) => {  
+        if (isChecked) {  
+            setSelectedFilters([...selectedFilters, category]);  
         } else {  
-            setSelectedFilters(prevFilters => prevFilters.filter(filter => filter !== value));  
+            setSelectedFilters(selectedFilters.filter(f => f !== category));  
         }  
-        setCheckboxState(prevState => ({ ...prevState, [value]: checked }));  
     };  
   
     const removeFilter = (filter) => {  
-        setSelectedFilters(prevFilters => prevFilters.filter(f => f !== filter));  
-        setCheckboxState(prevState => ({ ...prevState, [filter]: false }));  
+        setSelectedFilters(selectedFilters.filter(f => f !== filter));  
     };  
   
     return (  
-        <div className="filter-component filter-1">  
+        <div className="filter-component">  
             <div className="selected-filters">  
                 {selectedFilters.map(filter => (  
                     <span key={filter} className="filter-tag">  
@@ -35,19 +25,17 @@ function FilterComponent() {
                     </span>  
                 ))}  
             </div>  
-            <div className="filters">  
-                <div className="filter-category">  
-                    <h5>Filters</h5>  
-                    {Object.entries(checkboxState).map(([key, value]) => (  
-                        <label key={key}>  
-                            <input   
-                                type="checkbox"   
-                                checked={value}  
-                                onChange={(e) => handleFilterChange(key, e.target.checked)}  
-                            /> {key}  
-                        </label>  
-                    ))}  
-                </div>  
+            <div className="filter-category">  
+                <h5>Filters</h5>  
+                {categories.map(category => (  
+                    <label key={category}>  
+                        <input  
+                            type="checkbox"  
+                            checked={selectedFilters.includes(category)}  
+                            onChange={(e) => handleFilterChange(category, e.target.checked)}  
+                        /> {category}  
+                    </label>  
+                ))}  
             </div>  
         </div>  
     );  

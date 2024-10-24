@@ -3,13 +3,13 @@ import './navbar.css';
   
 function Navbar() {  
     const [isOpen, setIsOpen] = useState(false);
-    const [searchQuery, setSearchQuery] = useState("");  
+    // const [searchQuery, setSearchQuery] = useState("");  
   
-    const handleSearch = (event) => {  
-        event.preventDefault();  
-        alert(`Search for: ${searchQuery}`);  
-        // Implement search functionality or redirect to a search page  
-    }    
+    // const handleSearch = (event) => {  
+    //     event.preventDefault();  
+    //     alert(`Search for: ${searchQuery}`);  
+    //     // Implement search functionality or redirect to a search page  
+    // }    
   
     return (  
         <nav className="navbar">  
@@ -17,7 +17,7 @@ function Navbar() {
                 &#9776;  
             </span>  
             <a href="/" className="logo">TrustEdu</a>
-            <form onSubmit={handleSearch} className="search-form">  
+            {/* <form onSubmit={handleSearch} className="search-form">  
                 <input  
                     type="text"  
                     placeholder="Search..."  
@@ -29,7 +29,7 @@ function Navbar() {
                 <button type="submit" className="icon-button">  
                     <i className="fas fa-search"></i>  
                 </button>  
-            </form>   
+            </form>    */}
             <ul className={isOpen ? "main-nav active" : "main-nav"} id="js-menu">  
                 <li>  
                     <a href="/" className="nav-links">Home</a>  
