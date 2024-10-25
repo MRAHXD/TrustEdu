@@ -58,21 +58,34 @@ const courses = [
 ];  
   
 function App() {  
-    const [selectedFilters, setSelectedFilters] = useState([]);  
+    const [selectedFilters, setSelectedFilters] = useState([]);
+    const [isPaid, setIsPaid] = useState(false);  
+    const [priceRange, setPriceRange] = useState([0, 100]); 
+    const [priceFilter, setPriceFilter] = useState('all');
   
     return (  
         <div className="App">  
-            <div className='filter-1'>  
-                <FilterComponent selectedFilters={selectedFilters} setSelectedFilters={setSelectedFilters} />  
-            </div>  
-            <div className='filter-2'>  
-                <PricingFilter />  
-            </div>  
-            <div className='hero-section'>  
-                <CoursesListing courses={courses} selectedFilters={selectedFilters} />  
-            </div>  
+        <div className='filter-1'>  
+            <FilterComponent selectedFilters={selectedFilters} setSelectedFilters={setSelectedFilters} />  
         </div>  
-    );  
-}  
-  
-export default App;  
+        <div className='filter-2'>  
+        <PricingFilter  
+                priceFilter={priceFilter}  
+                setPriceFilter={setPriceFilter}  
+                priceRange={priceRange}  
+                setPriceRange={setPriceRange}  
+            />   
+        </div>  
+        <div className='hero-section'>  
+        <CoursesListing  
+                courses={courses}  
+                selectedFilters={selectedFilters}  
+                priceFilter={priceFilter}  
+                priceRange={priceRange}  
+            />  
+        </div>  
+    </div>  
+);  
+};  
+
+export default App;   

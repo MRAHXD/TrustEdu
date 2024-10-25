@@ -1,19 +1,16 @@
-import React, { useState } from 'react';  
-import './pricingFilter.css';  
+import React from 'react';
+import './pricingFilter.css';
   
-const PricingFilter = () => {  
-    const [isPaid, setIsPaid] = useState(false);  
-    const [priceRange, setPriceRange] = useState([0, 100]);  
-  
+const PricingFilter = ({ priceFilter, setPriceFilter, priceRange, setPriceRange }) => {  
     const handlePricingChange = (event) => {  
-        setIsPaid(event.target.value === 'paid');  
+        setPriceFilter(event.target.value);  
     };  
   
     const handlePriceRangeChange = (event) => {  
         const { name, value } = event.target;  
-        setPriceRange((prevRange) => {  
+        setPriceRange(prevRange => {  
             const newRange = [...prevRange];  
-            const numericValue = Math.max(1, Math.min(1000, Number(value)));  
+            const numericValue = Math.max(0, Math.min(100, Number(value))); // Adjusted to include 0  
             if (name === 'min') {  
                 newRange[0] = numericValue;  
             } else {  
@@ -29,22 +26,28 @@ const PricingFilter = () => {
             <label>  
                 <input  
                     type="radio"  
-                    value="free"  
-                    checked={!isPaid}  
+                    value="all"  
+                    checked={priceFilter === 'all'}  
                     onChange={handlePricingChange}  
-                />  
-                Free  
+                /> All  
+            </label>  
+            <label>  
+                <input  
+                    type="radio"  
+                    value="free"  
+                    checked={priceFilter === 'free'}  
+                    onChange={handlePricingChange}  
+                /> Free  
             </label>  
             <label>  
                 <input  
                     type="radio"  
                     value="paid"  
-                    checked={isPaid}  
+                    checked={priceFilter === 'paid'}  
                     onChange={handlePricingChange}  
-                />  
-                Paid  
+                /> Paid  
             </label>  
-            {isPaid && (  
+            {priceFilter === 'paid' && (  
                 <div>  
                     <label>  
                         Min Price:  
@@ -52,11 +55,10 @@ const PricingFilter = () => {
                             type="range"  
                             name="min"  
                             min="0"  
-                            max="1000"  
+                            max="100"  
                             value={priceRange[0]}  
                             onChange={handlePriceRangeChange}  
-                        />  
-                        {priceRange[0]}  
+                        /> {priceRange[0]}  
                     </label>  
                     <label>  
                         Max Price:  
@@ -64,15 +66,13 @@ const PricingFilter = () => {
                             type="range"  
                             name="max"  
                             min="0"  
-                            max="1000"  
+                            max="100"  
                             value={priceRange[1]}  
                             onChange={handlePriceRangeChange}  
-                        />  
-                        {priceRange[1]}  
+                        /> {priceRange[1]}  
                     </label>  
                 </div>  
             )}  
-            <button>Apply Filters</button>  {/* Optional: Add functionality to this button */}  
         </div>  
     );  
 };  

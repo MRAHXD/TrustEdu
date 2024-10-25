@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';  
 import CourseCard from './courseCard';  
-import './courseListing.css';  
+import './courseListing.css';
+ 
   
-const CoursesListing = ({ courses, selectedFilters }) => {  
+const CoursesListing = ({ courses, selectedFilters, priceFilter, priceRange  }) => {  
     const [searchTerm, setSearchTerm] = useState('');  
     const [filteredCourses, setFilteredCourses] = useState([]);  
     const [loading, setLoading] = useState(false);  
@@ -13,17 +14,23 @@ const CoursesListing = ({ courses, selectedFilters }) => {
     useEffect(() => {  
         setLoading(true);  
         const timeoutId = setTimeout(() => {  
-            const filtered = courses.filter(course =>  
-                (selectedFilters.length === 0 || selectedFilters.includes(course.category)) &&  
-                (additionalFilters.length === 0 || additionalFilters.some(filter => course.tags === filter)) &&  
-                (course.name.toLowerCase().includes(searchTerm) || course.description.toLowerCase().includes(searchTerm))  
-            );   
+            const filtered = courses.filter(course => {  
+                const courseCost = course.cost === 'Free' ? 0 : parseFloat(course.cost.replace('$', ''));  
+                return (  
+                    (selectedFilters.length === 0 || selectedFilters.includes(course.category)) &&  
+                    (additionalFilters.length === 0 || additionalFilters.some(filter => course.tags === filter)) &&  
+                    (course.name.toLowerCase().includes(searchTerm) || course.description.toLowerCase().includes(searchTerm)) &&  
+                    (priceFilter === 'all' ||   
+                     (priceFilter === 'free' && courseCost === 0) ||  
+                     (priceFilter === 'paid' && courseCost > 0 && courseCost >= priceRange[0] && courseCost <= priceRange[1]))  
+                );  
+            });  
             setFilteredCourses(filtered);  
             setLoading(false);  
-        }, 500); // Debounce the filtering operation  
-  
+        }, 500);  
+      
         return () => clearTimeout(timeoutId);  
-    }, [courses, selectedFilters, searchTerm, additionalFilters]);  
+    }, [courses, selectedFilters, searchTerm, additionalFilters, priceFilter, priceRange]); 
   
     const handleSearchChange = (event) => {  
         setSearchTerm(event.target.value.toLowerCase());  
