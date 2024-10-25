@@ -8,15 +8,15 @@ const CoursesListing = ({ courses, selectedFilters }) => {
     const [loading, setLoading] = useState(false);  
     const [additionalFilters, setAdditionalFilters] = useState([]);  
   
-    const additionalFilterOptions = ["YouTube", "E-learning Platform", "Official Documentation", "Private Educator", "Courses Platform"];  
+    const additionalFilterOptions = ["Youtube", "E-learning Platform", "Official Documentation", "Private Educator", "Courses Platform"];  
   
     useEffect(() => {  
         setLoading(true);  
         const timeoutId = setTimeout(() => {  
             const filtered = courses.filter(course =>  
                 (selectedFilters.length === 0 || selectedFilters.includes(course.category)) &&  
-                (additionalFilters.length === 0 || additionalFilters.some(filter => course.tags.includes(filter))) &&  
-                (course.name.toLowerCase().includes(searchTerm) || course.description.toLowerCase().includes(searchTerm))  
+                (additionalFilters.length === 0 || additionalFilters.some(filter => Array.isArray(course.tags) && course.tags.includes(filter))) &&  
+                (course.name && course.name.toLowerCase().includes(searchTerm) || course.description && course.description.toLowerCase().includes(searchTerm))  
             );  
             setFilteredCourses(filtered);  
             setLoading(false);  
@@ -30,7 +30,7 @@ const CoursesListing = ({ courses, selectedFilters }) => {
     };  
   
     const toggleAdditionalFilter = (filter) => {  
-        setAdditionalFilters(prevFilters =>   
+        setAdditionalFilters(prevFilters =>  
             prevFilters.includes(filter) ? prevFilters.filter(f => f !== filter) : [...prevFilters, filter]  
         );  
     };  

@@ -18,26 +18,42 @@ const courses = [
     {  
         id: 1,  
         name: 'Introduction to AI',  
-        category: 'AI',  
+        category: 'AI', 
+        tags: 'Private Educator', 
         image: 'https://stsahebabdul405253882785.blob.core.windows.net/5409c112-cd69-4005-84db-a7a769112c25-azureml-blobstore/UI/2024-10-24_154622_UTC/images/ai-Trust.jpeg',  
         description: 'Learn the basics of AI.',  
-        cost: 'Free'  
+        cost: 'Free',
+        source: 'https://',
+        Level: 'Beginner',
+        Duration: '2hrs',
+        Rating: '4.5'
+
     },  
     {  
         id: 2,  
         name: 'Machine Learning Advanced',  
-        category: 'ML',  
+        category: 'ML',
+        tags: 'Youtube',  
         image: 'https://stsahebabdul405253882785.blob.core.windows.net/5409c112-cd69-4005-84db-a7a769112c25-azureml-blobstore/UI/2024-10-24_154622_UTC/images/ml.jpeg',  
         description: 'Dive deeper into machine learning techniques.',  
-        cost: '$20'  
+        cost: '$20',
+        source: 'https://',
+        Level: 'Beginner',
+        Duration: '2hrs',
+        Rating: '4.5'
     },  
     {  
         id: 3,  
         name: 'Data Science 101',  
-        category: 'Data Science',  
+        category: 'Data Science', 
+        tags: 'Private Educator', 
         image: 'https://stsahebabdul405253882785.blob.core.windows.net/5409c112-cd69-4005-84db-a7a769112c25-azureml-blobstore/UI/2024-10-24_154622_UTC/images/dataScience.jpeg',  
         description: 'Start your journey in data science.',  
-        cost: '$10'  
+        cost: '$10',
+        source: 'https://',
+        Level: 'Beginner',
+        Duration: '2hrs',
+        Rating: '4.5' 
     }  
 ];  
   
