@@ -15,9 +15,9 @@ const CoursesListing = ({ courses, selectedFilters }) => {
         const timeoutId = setTimeout(() => {  
             const filtered = courses.filter(course =>  
                 (selectedFilters.length === 0 || selectedFilters.includes(course.category)) &&  
-                (additionalFilters.length === 0 || additionalFilters.some(filter => Array.isArray(course.tags) && course.tags.includes(filter))) &&  
-                (course.name && course.name.toLowerCase().includes(searchTerm) || course.description && course.description.toLowerCase().includes(searchTerm))  
-            );  
+                (additionalFilters.length === 0 || additionalFilters.some(filter => course.tags === filter)) &&  
+                (course.name.toLowerCase().includes(searchTerm) || course.description.toLowerCase().includes(searchTerm))  
+            );   
             setFilteredCourses(filtered);  
             setLoading(false);  
         }, 500); // Debounce the filtering operation  
