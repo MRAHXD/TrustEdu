@@ -58,8 +58,7 @@ const courses = [
 ];  
   
 function Courses() {  
-    const [selectedFilters, setSelectedFilters] = useState([]);
-    const [isPaid, setIsPaid] = useState(false);  
+    const [selectedFilters, setSelectedFilters] = useState([]);  
     const [priceRange, setPriceRange] = useState([0, 100]); 
     const [priceFilter, setPriceFilter] = useState('all');
   

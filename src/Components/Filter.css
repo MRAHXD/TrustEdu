@@ -13,7 +13,8 @@
     margin-bottom: 20px;  
     padding: 10px;  
     border: 1px solid darkgray;  
-    border-radius: 5px;  
+    border-radius: 5px;
+    color: #003161;  
 }  
   
 .filter-tag {  
@@ -44,14 +45,16 @@
     padding: 10px;  
     border: 1px solid darkgray;  
     border-radius: 5px;  
-    background-color: #f9f9f9;  
+    background-color: #003161;  
     display: flex;  
     flex-direction: column;  
-    gap: 10px;  
+    gap: 10px; 
+    color: #FFF4B7; 
 }  
   
 .filter-category h5 {  
-    margin-bottom: 5px;  
+    margin-bottom: 5px;
+    color: #FFF4B7;  
 }  
   
 /* Responsive adjustments */  

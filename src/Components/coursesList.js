@@ -43,8 +43,9 @@ const CoursesListing = ({ courses, selectedFilters, priceFilter, priceRange  }) 
     };  
   
     return (  
+        
         <div>  
-            <input  
+          <input  
                 type="text"  
                 placeholder="Search courses"  
                 onChange={handleSearchChange}  

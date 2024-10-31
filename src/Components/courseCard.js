@@ -14,8 +14,9 @@ const CourseCard = ({ course }) => {
                 <p className="course-meta">Duration: {course.Duration}</p>  
                 <p className="course-meta">Advance Category: {course.tags}</p>  
                 <div className="rating">  
+                    <span>{course.Rating} / 5</span> 
                     <FaStar className="star-icon" />  
-                    <span>{course.Rating} / 5</span>  
+                     
                 </div>  
             </div>  
         </div>  
