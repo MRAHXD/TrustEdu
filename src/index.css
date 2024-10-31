@@ -6,7 +6,18 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: lightgray;
+  overflow: auto; /* Allows scrolling */
+  scrollbar-width: none; /* Firefox: hide scroll bar */
 }
+::-webkit-scrollbar {  
+  display: none;  
+}  
+  
+/* Hide scrollbar for IE, Edge and Firefox */  
+html, body {  
+  scrollbar-width: none; /* Firefox */  
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */  
+}  
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
